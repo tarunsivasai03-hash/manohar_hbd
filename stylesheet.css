@@ -1,6 +1,9 @@
 body {
 	/*background-color: #FFDAB9;	*/
 	background-color: #000;
+	margin: 0;
+	min-height: 100vh;
+	padding-bottom: 96px;
 	-webkit-transition:background-color linear 5s;
 	-moz-transition:background-color linear 5s;
 	-o-transition:background-color linear 5s;
@@ -8,8 +11,14 @@ body {
 	transition:background-color linear 5s;
 	overflow-x:hidden;
 }
+* {
+	box-sizing: border-box;
+}
 .container {
 	display: none;
+	width: 100%;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 .peach {
 	background-color: #FFDAB9;
@@ -1260,6 +1269,23 @@ audio {
 	bottom: 0;
 	padding:10px 0px 10px 0px;
 }
+.navbar-fixed-bottom {
+	padding: 8px 0;
+	background: rgba(0, 0, 0, 0.16);
+	backdrop-filter: blur(2px);
+	z-index: 10000;
+}
+.control-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+.control-buttons .btn {
+	margin: 0;
+}
 #play, #bannar_coming, #balloons_flying,#cake_fadein,#light_candle,#wish_message,#story {
 	display: none;
 }
@@ -1270,6 +1296,7 @@ audio {
 .message {
 	margin-top: 200px;
 	display: none;
+	padding-bottom: 24px;
 }
 .message p {
 	font-family: 'Signika', sans-serif;
@@ -1312,6 +1339,7 @@ audio {
         text-transform: uppercase;
         font-family: 'Signika', sans-serif;
         font-weight: 700;
+	font-size: 13px;
         color: #fff;
         background-color: #466baf;
 }
@@ -1328,11 +1356,22 @@ audio {
 
 
 @media only screen and (max-width: 767px) {
+	body {
+		padding-bottom: 16px;
+	}
+	.container {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
 	.navbar-fixed-bottom {
 		position: static;
 		margin-top: 18px;
+		padding: 0;
+		background: transparent;
+		backdrop-filter: none;
 	}
-	.navbar-fixed-bottom .btn {
+	.navbar-fixed-bottom .btn,
+	.control-buttons .btn {
 		display: block;
 		width: 100%;
 		margin: 8px 0;
@@ -1381,7 +1420,35 @@ audio {
 	}
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	body {
+		padding-bottom: 116px;
+	}
+	.balloons {
+		width: 84px;
+		height: 154px;
+		background-size: 84px 154px;
+	}
+	.balloons h2 {
+		font-size: 40px;
+		line-height: 126px;
+	}
+	.message {
+		margin-top: 150px;
+	}
+	.message p {
+		font-size: 24px;
+	}
+	.control-buttons {
+		max-width: 760px;
+		margin: 0 auto;
+	}
+}
+
 @media only screen and (max-width: 480px) {
+	body {
+		padding-bottom: 10px;
+	}
 	.bulb {
 		width: 36px;
 		height: 36px;
@@ -1404,6 +1471,7 @@ audio {
 	}
 	.message p {
 		font-size: 16px;
+		letter-spacing: 0.4px;
 	}
 	#bob_video {
 		border-width: 2px;
